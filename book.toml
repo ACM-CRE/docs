@@ -1,0 +1,20 @@
+[book]
+title = "ACM CRE Template Docs"
+authors = ["ACM CRE"]
+language = "en"
+
+description = "Documentation for the ACM COMPUTE Regional Event website template"
+src = "src"
+
+[build]
+build-dir = "book"
+
+[output.html]
+default-theme = "rust"
+git-repository-url = "https://github.com/acm-cre/docs"
+edit-url-template = "https://github.com/acm-cre/docs/edit/main/src/{path}"
+no-section-label = false
+
+[output.html.search]
+enable = true
+
