@@ -2,6 +2,10 @@
 
 [Introduction](README.md)
 
+# Reference
+
+- [Glossary](glossary.md)
+
 ---
 
 * [What is a CRE?](organising/what-is-cre.md)
