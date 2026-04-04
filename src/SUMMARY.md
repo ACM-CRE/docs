@@ -4,6 +4,7 @@
 
 # Customisation
 
+- [Organisers](customisation/organisers.md)
 - [Event Details](customisation/event-details.md)
 
 # Reference
