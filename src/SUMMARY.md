@@ -2,6 +2,10 @@
 
 [Introduction](README.md)
 
+# Customisation
+
+- [Event Details](customisation/event-details.md)
+
 # Reference
 
 - [Glossary](glossary.md)
