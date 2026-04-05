@@ -9,6 +9,7 @@
 - [Schedule](customisation/schedule.md)
 - [People](customisation/people.md)
 - [Sponsors](customisation/sponsors.md)
+- [Styling](customisation/styling.md)
 
 # Reference
 
