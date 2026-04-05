@@ -7,6 +7,7 @@
 - [Organisers](customisation/organisers.md)
 - [Event Details](customisation/event-details.md)
 - [Schedule](customisation/schedule.md)
+- [People](customisation/people.md)
 
 # Reference
 
