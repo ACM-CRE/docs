@@ -92,4 +92,4 @@ features:
   i18n: false
 ```
 
-This hides the language switcher and simplifies the site.
+This hides the language switcher and simplifies the site. See [Feature Toggles](feature-toggles.md) for more about enabling and disabling site sections.

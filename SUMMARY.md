@@ -19,6 +19,7 @@
 * [Sponsors](customization/sponsors.md)
 * [Styling](customization/styling.md)
 * [Adding Languages](customization/languages.md)
+* [Feature Toggles](customization/feature-toggles.md)
 
 ## Going Live
 

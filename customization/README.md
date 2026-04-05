@@ -22,6 +22,7 @@ Your event website is configured through YAML files in the `_data/` folder. No c
 - [Sponsors](sponsors.md) - Sponsor tiers and logos
 - [Styling](styling.md) - Colours, fonts, spacing
 - [Adding Languages](languages.md) - Multi-language support
+- [Feature Toggles](feature-toggles.md) - Enable/disable site sections
 
 ## How YAML works
 

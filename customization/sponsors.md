@@ -52,7 +52,7 @@ tiers:
 
 ## Disabling sponsors
 
-If you don't have sponsors yet, you can disable the sponsors section. See [Feature Toggles](../customization/README.md#feature-toggles) (coming soon).
+If you don't have sponsors yet, you can disable the sponsors section. See [Feature Toggles](feature-toggles.md).
 
 ## Fields reference
 
