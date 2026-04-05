@@ -11,6 +11,10 @@
 - [Sponsors](customisation/sponsors.md)
 - [Styling](customisation/styling.md)
 
+# Advanced
+
+- [Feature Toggles](customisation/feature-toggles.md)
+
 # Reference
 
 - [Glossary](glossary.md)
