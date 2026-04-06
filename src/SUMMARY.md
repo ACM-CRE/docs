@@ -2,6 +2,10 @@
 
 [Introduction](README.md)
 
+# Getting Started
+
+- [Setup](getting-started/setup.md)
+
 # Customisation
 
 - [Organisers](customisation/organisers.md)
