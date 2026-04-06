@@ -18,6 +18,7 @@
 
 # Advanced
 
+- [Custom Domain](custom-domain.md)
 - [Adding Languages](customisation/languages.md)
 - [Feature Toggles](customisation/feature-toggles.md)
 
