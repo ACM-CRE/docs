@@ -5,6 +5,7 @@
 # Getting Started
 
 - [Setup](getting-started/setup.md)
+- [Deployment](deployment.md)
 
 # Customisation
 
