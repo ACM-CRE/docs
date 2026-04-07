@@ -12,6 +12,9 @@ Application Programming Interface. A way for different software programs to talk
 ### Branch
 A separate version of your code. Like making a copy to experiment with, without affecting the original.
 
+### baseurl
+A Jekyll setting that adds a path prefix to all URLs. Used when your site isn't at the root of a domain (e.g., `username.github.io/my-site/`).
+
 ### Bundle / Bundler
 A tool that installs Ruby packages (gems) for your project. When you run `bundle install`, it reads the `Gemfile` and installs everything listed there.
 
@@ -20,18 +23,33 @@ A tool that installs Ruby packages (gems) for your project. When you run `bundle
 ### Clone
 Downloading a copy of a repository from GitHub to your computer.
 
+### CNAME
+A DNS record type that points one domain to another. Used to set up custom domains for GitHub Pages.
+
 ### Commit
 A saved snapshot of your changes. Like a checkpoint in a video game.
+
+### COMPUTE
+An ACM conference focused on computing education, run by iSIGCSE (ACM India Special Interest Group on CS Education). COMPUTE Regional Events bring this community together locally.
+
+### CRE
+COMPUTE Regional Event. A local gathering of CS educators and researchers, using the ACM CRE template for their event website.
 
 ## D
 
 ### Deploy
 Publishing your website so others can see it on the internet.
 
+### DNS
+Domain Name System. Translates domain names (like `example.com`) to IP addresses. You configure DNS records to point your custom domain to GitHub Pages.
+
 ## F
 
 ### Fork
 Creating your own copy of someone else's repository on GitHub.
+
+### Feature toggle
+A setting that enables or disables a feature. In the ACM CRE template, feature toggles in `_config.yml` control which sections (sponsors, venue, i18n) are visible.
 
 ### Front matter
 The section at the top of a markdown file between `---` marks. It contains settings for that page.
@@ -48,6 +66,9 @@ title: My Page
 ### Gem
 A Ruby package. Like an app for Ruby that adds functionality.
 
+### gh-pages
+A branch name commonly used for GitHub Pages deployments. The deploy script builds your site and pushes it to this branch.
+
 ### Git
 A version control system that tracks changes to your files over time.
 
@@ -61,6 +82,11 @@ A free service from GitHub that hosts static websites directly from a repository
 
 ### HTML
 HyperText Markup Language. The code that structures web pages.
+
+## I
+
+### i18n
+Short for "internationalisation" (i + 18 letters + n). The process of designing software to support multiple languages. In the ACM CRE template, the i18n feature toggle enables multi-language support.
 
 ## J
 
