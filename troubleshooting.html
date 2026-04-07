@@ -1,0 +1,451 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Troubleshooting - ACM CRE Template Docs</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Documentation for the ACM COMPUTE Regional Event website template">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-f25a0def.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-a5b1803a.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">ACM CRE Template Docs</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/acm-cre/docs" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/acm-cre/docs/edit/main/src/src/troubleshooting.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <span class=fa-svg id="git-edit-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M421.7 220.3l-11.3 11.3-22.6 22.6-205 205c-6.6 6.6-14.8 11.5-23.8 14.1L30.8 511c-8.4 2.5-17.5 .2-23.7-6.1S-1.5 489.7 1 481.2L38.7 353.1c2.6-9 7.5-17.2 14.1-23.8l205-205 22.6-22.6 11.3-11.3 33.9 33.9 62.1 62.1 33.9 33.9zM96 353.9l-9.3 9.3c-.9 .9-1.6 2.1-2 3.4l-25.3 86 86-25.3c1.3-.4 2.5-1.1 3.4-2l9.3-9.3H112c-8.8 0-16-7.2-16-16V353.9zM453.3 19.3l39.4 39.4c25 25 25 65.5 0 90.5l-14.5 14.5-22.6 22.6-11.3 11.3-33.9-33.9-62.1-62.1L314.3 67.7l11.3-11.3 22.6-22.6 14.5-14.5c25-25 65.5-25 90.5 0z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="troubleshooting"><a class="header" href="#troubleshooting">Troubleshooting</a></h1>
+<p>Common problems and how to fix them.</p>
+<h2 id="setup-issues"><a class="header" href="#setup-issues">Setup Issues</a></h2>
+<h3 id="command-not-found-mise"><a class="header" href="#command-not-found-mise">“command not found: mise”</a></h3>
+<p><strong>Cause:</strong> mise isn’t in your PATH, or Terminal wasn’t restarted.</p>
+<p><strong>Fix:</strong> Close Terminal completely and reopen it. On macOS, use <code>Cmd + Q</code> to fully quit.</p>
+<hr>
+<h3 id="command-not-found-bundle-or-command-not-found-jekyll"><a class="header" href="#command-not-found-bundle-or-command-not-found-jekyll">“command not found: bundle” or “command not found: jekyll”</a></h3>
+<p><strong>Cause:</strong> Ruby isn’t installed or mise isn’t activated.</p>
+<p><strong>Fix:</strong> Check which Ruby is being used:</p>
+<pre><code class="language-bash">which ruby
+</code></pre>
+<p>If it shows <code>/usr/bin/ruby</code> (system Ruby), mise isn’t working. Try:</p>
+<pre><code class="language-bash">mise trust
+mise install
+</code></pre>
+<hr>
+<h3 id="bundle-install-fails-with-permission-errors"><a class="header" href="#bundle-install-fails-with-permission-errors">“bundle install” fails with permission errors</a></h3>
+<p><strong>Cause:</strong> You’re using system Ruby instead of mise Ruby.</p>
+<p><strong>Fix:</strong> Check <code>which ruby</code>. It should show a path containing <code>.local/share/mise/</code>. If not, ensure mise is activated in your shell config.</p>
+<hr>
+<h3 id="bundle-install-fails-with-iostream-file-not-found-macos"><a class="header" href="#bundle-install-fails-with-iostream-file-not-found-macos"><code>bundle install</code> fails with <code>'iostream' file not found</code> (macOS)</a></h3>
+<p>Your Xcode Command Line Tools install is broken or incomplete. If you skipped <a href="getting-started/setup.html#step-4-install-the-xcode-command-line-tools">Step 4 of Setup</a>, start there. If you already ran it and still hit this, the install is in an inconsistent state and needs to be reinstalled. The C++ standard library headers are missing from the location clang searches first, so any gem with C++ native extensions (eventmachine, google-protobuf, etc.) fails to build.</p>
+<p>You can confirm this is the issue by running:</p>
+<pre><code class="language-bash">echo '#include &lt;iostream&gt;
+int main(){}' | clang++ -x c++ - -o /tmp/t
+</code></pre>
+<p>If you see <code>'iostream' file not found</code>, it’s this problem.</p>
+<p>To fix it, reinstall Command Line Tools. The version must match your macOS version (e.g. macOS 26.0.1 needs the matching CLT release).</p>
+<pre><code class="language-bash">sudo rm -rf /Library/Developer/CommandLineTools
+xcode-select --install
+</code></pre>
+<p>Click through the installer dialog and wait for it to finish.</p>
+<p>If <code>xcode-select --install</code> fails with “Xcode is not currently available from the software update server”, this can happen on older macOS versions where Apple no longer serves CLT through Software Update. Download the installer manually instead:</p>
+<ol>
+<li>Go to <a href="https://developer.apple.com/download/all/?q=command%20line%20tools%20for%20xcode">developer.apple.com/download/all</a> (you’ll need to sign in with an Apple ID)</li>
+<li>Find the <strong>Command Line Tools for Xcode</strong> release that matches your macOS version</li>
+<li>Download the <code>.dmg</code> and run the installer</li>
+</ol>
+<p>After install, verify with the <code>clang++</code> test above, then retry <code>bundle install</code>.</p>
+<hr>
+<h3 id="your-ruby-version-is-x-but-your-gemfile-specified-y"><a class="header" href="#your-ruby-version-is-x-but-your-gemfile-specified-y">“Your Ruby version is X, but your Gemfile specified Y”</a></h3>
+<p><strong>Cause:</strong> The project expects a different Ruby version than what you have.</p>
+<p><strong>Fix:</strong></p>
+<pre><code class="language-bash">mise install
+</code></pre>
+<p>This installs the correct Ruby version defined in <code>mise.toml</code>.</p>
+<hr>
+<h2 id="build-issues"><a class="header" href="#build-issues">Build Issues</a></h2>
+<h3 id="jekyll-build-fails-with-liquid-syntax-error"><a class="header" href="#jekyll-build-fails-with-liquid-syntax-error">Jekyll build fails with “Liquid syntax error”</a></h3>
+<p><strong>Cause:</strong> There’s a typo in a template file.</p>
+<p><strong>Fix:</strong> The error message will tell you which file and line number. Check for:</p>
+<ul>
+<li>Unclosed <code>{% %}</code> or <code>{{ }}</code> tags</li>
+<li>Missing <code>endif</code> or <code>endfor</code></li>
+<li>Typos in variable names</li>
+</ul>
+<hr>
+<h3 id="changes-not-showing-up"><a class="header" href="#changes-not-showing-up">Changes not showing up</a></h3>
+<p><strong>Cause:</strong> Browser cache or Jekyll didn’t rebuild.</p>
+<p><strong>Fix:</strong></p>
+<ol>
+<li>Hard refresh: <code>Cmd + Shift + R</code> (macOS) or <code>Ctrl + Shift + R</code> (Windows/Linux)</li>
+<li>Stop Jekyll (<code>Ctrl + C</code>) and restart: <code>bundle exec jekyll serve</code></li>
+</ol>
+<hr>
+<h3 id="images-not-loading"><a class="header" href="#images-not-loading">Images not loading</a></h3>
+<p><strong>Cause:</strong> Wrong file path or filename.</p>
+<p><strong>Fix:</strong> Check that:</p>
+<ul>
+<li>The image file exists in <code>assets/images/</code></li>
+<li>The filename in your YAML matches exactly (case-sensitive)</li>
+<li>You’re using the correct path format: <code>/assets/images/speakers/jane-doe.jpg</code></li>
+</ul>
+<hr>
+<h2 id="yaml-issues"><a class="header" href="#yaml-issues">YAML Issues</a></h2>
+<h3 id="indentation-errors"><a class="header" href="#indentation-errors">Indentation errors</a></h3>
+<p><strong>Cause:</strong> YAML requires spaces, not tabs. Wrong indentation breaks the file.</p>
+<p><strong>Fix:</strong> Configure your editor to use spaces (2 spaces per indent). Look for mixed tabs/spaces:</p>
+<pre><code class="language-yaml"># Wrong (tabs or inconsistent)
+event:
+	name: "My Event"    # Tab character
+
+# Correct (2 spaces)
+event:
+  name: "My Event"
+</code></pre>
+<hr>
+<h3 id="strings-with-special-characters"><a class="header" href="#strings-with-special-characters">Strings with special characters</a></h3>
+<p><strong>Cause:</strong> Values containing colons, quotes, or special characters need to be quoted.</p>
+<p><strong>Fix:</strong> Wrap the value in quotes:</p>
+<pre><code class="language-yaml"># Wrong
+description: Welcome: An Introduction
+
+# Correct
+description: "Welcome: An Introduction"
+</code></pre>
+<hr>
+<h3 id="yaml-changes-not-appearing"><a class="header" href="#yaml-changes-not-appearing">YAML changes not appearing</a></h3>
+<p><strong>Cause:</strong> Jekyll doesn’t always detect YAML file changes.</p>
+<p><strong>Fix:</strong> Stop the server (<code>Ctrl + C</code>) and restart:</p>
+<pre><code class="language-bash">bundle exec jekyll serve
+</code></pre>
+<hr>
+<h2 id="field-name-issues"><a class="header" href="#field-name-issues">Field Name Issues</a></h2>
+<h3 id="people-not-displaying"><a class="header" href="#people-not-displaying">People not displaying</a></h3>
+<p><strong>Cause:</strong> Using wrong field names in <code>speakers/en.yml</code>.</p>
+<p><strong>Fix:</strong> Check these common mistakes:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Wrong</th><th>Correct</th></tr>
+</thead>
+<tbody>
+<tr><td><code>image:</code></td><td><code>photo:</code></td></tr>
+<tr><td><code>keynote_speakers:</code></td><td><code>keynote:</code></td></tr>
+<tr><td><code>role:</code></td><td>(not used)</td></tr>
+<tr><td><code>bio:</code></td><td>(not used)</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="event-details-not-showing"><a class="header" href="#event-details-not-showing">Event details not showing</a></h3>
+<p><strong>Cause:</strong> Using wrong field names in <code>site.yml</code>.</p>
+<p><strong>Fix:</strong> Check these common mistakes:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Wrong</th><th>Correct</th></tr>
+</thead>
+<tbody>
+<tr><td><code>event.name</code></td><td><code>event_name</code></td></tr>
+<tr><td><code>venue:</code></td><td><code>location:</code></td></tr>
+<tr><td><code>contact.email</code></td><td><code>social.email</code></td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="facilitators-not-appearing-on-schedule"><a class="header" href="#facilitators-not-appearing-on-schedule">Facilitators not appearing on schedule</a></h3>
+<p><strong>Cause:</strong> Using names instead of IDs in <code>schedule.yml</code>.</p>
+<p><strong>Fix:</strong> Use facilitator IDs that match entries in <code>speakers/en.yml</code>:</p>
+<pre><code class="language-yaml"># Wrong
+facilitators:
+  - "Dr. Jane Doe"
+
+# Correct
+facilitators:
+  - jane-doe
+</code></pre>
+<hr>
+<h2 id="language-issues"><a class="header" href="#language-issues">Language Issues</a></h2>
+<h3 id="language-switcher-not-working"><a class="header" href="#language-switcher-not-working">Language switcher not working</a></h3>
+<p><strong>Cause:</strong> Wrong front matter format or missing language in strings.</p>
+<p><strong>Fix:</strong> Check the <code>alternate</code> field uses an object, not separate fields:</p>
+<pre><code class="language-yaml"># Wrong
+alternate_lang: en
+alternate_url: /
+
+# Correct
+alternate:
+  en: /
+  hi: /hi/
+</code></pre>
+<p>Also ensure your language is listed in <code>_data/strings/[lang].yml</code> under <code>language_switcher</code>.</p>
+<hr>
+<h2 id="deployment-issues"><a class="header" href="#deployment-issues">Deployment Issues</a></h2>
+<h3 id="gh-pages-branch-not-found-when-deploying"><a class="header" href="#gh-pages-branch-not-found-when-deploying">“gh-pages branch not found” when deploying</a></h3>
+<p><strong>Cause:</strong> First-time deployment hasn’t created the branch yet.</p>
+<p><strong>Fix:</strong> Run the deploy command:</p>
+<pre><code class="language-bash">bundle exec rake deploy
+</code></pre>
+<p>This creates the <code>gh-pages</code> branch automatically.</p>
+<hr>
+<h3 id="site-shows-404-after-deployment"><a class="header" href="#site-shows-404-after-deployment">Site shows 404 after deployment</a></h3>
+<p><strong>Cause:</strong> GitHub Pages isn’t configured correctly.</p>
+<p><strong>Fix:</strong></p>
+<ol>
+<li>Go to your repo on GitHub</li>
+<li>Settings → Pages</li>
+<li>Under “Source”, select “Deploy from a branch”</li>
+<li>Select <code>gh-pages</code> branch and <code>/ (root)</code></li>
+<li>Save and wait a few minutes</li>
+</ol>
+<hr>
+<h3 id="deployed-site-loads-but-css-js-and-images-are-missing"><a class="header" href="#deployed-site-loads-but-css-js-and-images-are-missing">Deployed site loads but CSS, JS and images are missing</a></h3>
+<p>The page shows up at your GitHub Pages URL but it’s unstyled, no images load, and the browser devtools Network tab shows 404s for <code>/assets/css/style.css</code> and similar files. The 404 URLs point at your domain root (e.g. <code>https://jane-doe.github.io/assets/...</code>) instead of your project sub-path (<code>https://jane-doe.github.io/acm-cre-university/assets/...</code>).</p>
+<p>This means <code>_config.yml</code> has the wrong <code>baseurl</code> for your repository. GitHub Pages serves any repo whose name does not end in <code>.github.io</code> from a sub-path matching the repo name, and Jekyll needs <code>baseurl</code> set so it can prefix every internal URL with that sub-path.</p>
+<p>Open <code>_config.yml</code> and set <code>baseurl</code> to <code>/your-repo-name</code> (with the leading slash, matching the repo name exactly). See <a href="customisation/event-details.html#site-settings">Event Details → Site settings</a> for the full explanation and both cases. Then redeploy:</p>
+<pre><code class="language-bash">bundle exec rake deploy
+</code></pre>
+<hr>
+<h3 id="site-shows-old-content-after-deployment"><a class="header" href="#site-shows-old-content-after-deployment">Site shows old content after deployment</a></h3>
+<p><strong>Cause:</strong> GitHub Pages cache or CDN delay.</p>
+<p><strong>Fix:</strong> Wait 5-10 minutes. GitHub Pages can take time to update. You can also:</p>
+<ol>
+<li>Check the deployment status in GitHub → Actions tab</li>
+<li>Hard refresh your browser</li>
+</ol>
+<hr>
+<h2 id="still-stuck"><a class="header" href="#still-stuck">Still stuck?</a></h2>
+<ol>
+<li>Check existing <a href="https://github.com/ACM-CRE/website-template/issues">GitHub Issues</a></li>
+<li>Open a new issue with:
+<ul>
+<li>What you were trying to do</li>
+<li>The exact error message</li>
+<li>Your operating system</li>
+<li>Output of <code>mise doctor</code> and <code>ruby --version</code></li>
+</ul>
+</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="quick-reference.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="glossary.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="quick-reference.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="glossary.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
