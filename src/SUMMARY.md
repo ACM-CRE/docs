@@ -25,6 +25,7 @@
 # Reference
 
 - [Quick Reference](quick-reference.md)
+- [Troubleshooting](troubleshooting.md)
 - [Glossary](glossary.md)
 
 ---
