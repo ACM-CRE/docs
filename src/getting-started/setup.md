@@ -2,6 +2,8 @@
 
 This guide walks through setting up the ACM CRE template on your computer, from creating the GitHub organisation through to running the site locally.
 
+The screenshots and command output in this guide are all from macOS. If you are on Windows or Linux, see [Setup on other platforms](setup-other-platforms.md) for the equivalent terminal and toolchain steps, then return here for the GitHub and project steps which are platform-independent.
+
 ## Before you begin
 
 You will need:

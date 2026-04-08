@@ -5,6 +5,7 @@
 # Getting Started
 
 - [Setup](getting-started/setup.md)
+  - [Setup on other platforms](getting-started/setup-other-platforms.md)
 - [Deployment](deployment.md)
 
 # Customisation
