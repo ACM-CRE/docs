@@ -145,6 +145,15 @@ echo 'eval "$(~/.local/bin/mise activate zsh)"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
+When you `source ~/.zshrc` while inside the project directory, mise will print errors that look like this:
+
+```
+mise ERROR error parsing config file: ~/<your-repo>/mise.toml
+mise ERROR Config files in ~/<your-repo>/mise.toml are not trusted.
+```
+
+This is expected. mise refuses to read a project's `mise.toml` until you explicitly trust it. The next step fixes this.
+
 ## Step 7: Trust mise and install Ruby
 
 Tell mise that this project's config is safe:
@@ -153,7 +162,7 @@ Tell mise that this project's config is safe:
 mise trust
 ```
 
-<img src="../images/setup/terminal_03_mise_trust.png" alt="Terminal showing mise trust succeeding" width="600">
+<img src="../images/setup/terminal_03_mise_trust.png" alt="Terminal showing the trust errors followed by mise trust succeeding" width="600">
 
 Now install Ruby:
 
@@ -161,9 +170,15 @@ Now install Ruby:
 mise install
 ```
 
-This downloads a precompiled Ruby 3.4 binary. You may see a warning about a Rekor public key — this warning is harmless and the download completes successfully.
+This downloads a precompiled Ruby 3.4 binary. You may see a warning about a Rekor public key:
 
-<img src="../images/setup/terminal_04_mise_install.png" alt="Terminal showing mise install with a precompiled Ruby binary being extracted" width="600">
+```
+mise Cannot parse Rekor public key with id cf1199155bddd051268d1f16ac5c0c75c009f6fb5a63f4177f8e18d7051e3fa0: Pkcs8 spki error : Ecdsa-P256 from der bytes to public key failed: unknown/unsupported algorithm OID: 1.2.840.10045.2.1
+```
+
+This warning is harmless. mise is unable to verify one of its signing keys, but the download itself completes successfully.
+
+<img src="../images/setup/terminal_04_mise_install.png" alt="Terminal showing mise install with the Rekor warning followed by the precompiled Ruby being extracted" width="600">
 
 Verify the install:
 
